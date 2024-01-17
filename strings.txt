@@ -2,5 +2,7 @@ Lorem ipsum dolor sit amet
 Пример
 consectetur adipiscing
 тестовое задание
-Нормальная форма числа с плавающей запятой
-Long
+Lorem ipsum dolor sit amet
+Пример
+consectetur adipiscing
+тестовое задание
