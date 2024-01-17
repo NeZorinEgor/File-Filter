@@ -1,5 +1,7 @@
 package ru.neZorinEgor.task;
 
+import ru.neZorinEgor.task.CastomErrors.CastomFileNotFoundException;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -22,29 +24,35 @@ public class Application {
     static File strings = new File("strings.txt");
     static File floats = new File("floats.txt");
 
-    public static void main(String[] args) throws IOException {
-        System.out.print("Enter file path: ");
-        Scanner fileName = new Scanner(System.in);
-        File fileNameFromScanner = new File(fileName.nextLine());
+    public static void main(String[] args) throws FileNotFoundException {
+        while(true) {
+            System.out.print("Enter file path: ");
+            Scanner fileName = new Scanner(System.in);
+            File fileNameFromScanner = new File(fileName.nextLine());
 
-        Scanner scanner = new Scanner(fileNameFromScanner);
+            Scanner scanner;
+            try {
+                scanner = new Scanner(fileNameFromScanner);
+            } catch (FileNotFoundException e) {
+                throw new CastomFileNotFoundException("Error: file not found. Detail:\n" + e.getMessage());
+            }
 
-        //перезаписывать или дописывать
-        switchFileWriter(false);
+            switchFileWriter(false);
 
-        while (scanner.hasNextLine()){
-            //обработка данных
-            checkLineType(scanner.nextLine());
+            while (scanner.hasNextLine()) {
+                //обработка данных
+                checkLineType(scanner.nextLine());
+            }
+
+            //удаление файла при отсутствии данных
+            closeAndDeleteIfEmpty(countInt, intWriter, integers);
+            closeAndDeleteIfEmpty(countString, stringWriter, strings);
+            closeAndDeleteIfEmpty(countFloat, floatWriter, floats);
+
+            //краткая статистика
+            briefStatistics();
+            scanner.close();
         }
-
-        //удаление файла при отсутствии данных
-        closeAndDeleteIfEmpty(countInt, intWriter, integers);
-        closeAndDeleteIfEmpty(countString, stringWriter, strings);
-        closeAndDeleteIfEmpty(countFloat, floatWriter, floats);
-
-        //краткая статистика
-        briefStatistics();
-        scanner.close();
     }
 
     //запись в файлы и сбор статистика
@@ -84,11 +92,15 @@ public class Application {
         }
     }
 
+    //TODO: реализовать корректный подсчет в бесконечной итерации, руфакторинг, разделение логики
     //краткая статистика
     public static  void briefStatistics(){
-        System.out.println("Rest statistic: \n\treturn");
-        System.out.println("\t\t└── Integer variable:\t" + countInt);
-        System.out.println("\t\t└─── String variable:\t" + countString);
-        System.out.println("\t\t└──── Float variable:\t" + countFloat);
+        System.out.println("Rest statistic: \n\t├──return");
+        System.out.println("\t│\t├─ Integer variable:\t" + countInt);
+        System.out.println("\t│\t├── String variable:\t" + countString);
+        System.out.println("\t│\t└─── Float variable:\t" + countFloat);
+        System.out.println("\t└──directory");
+        System.out.println("\t\t└─ Path:" + (integers.getAbsolutePath()));
+        System.out.println("End.");
     }
 }
