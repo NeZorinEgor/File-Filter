@@ -10,9 +10,9 @@ public class Application {
     static int countFloat = 0;
 
     //regex
-    static String isInt = "^[+-]?\\d+$"; //ints
-    static String isString = "^(?![+-]?\\d)(?!\\n)[^\\d ].*$"; //stings
-    static String isFloat = "[+-]?\\d+\\.\\d+([eE][+-]?\\d+)?"; //flots
+    static String intRegex = "^[+-]?\\d+$"; //ints
+    static String stringRegex = "^(?![+-]?\\d)(?!\\n)[^\\d ].*$"; //stings
+    static String floatRegex = "[+-]?\\d+\\.\\d+([eE][+-]?\\d+)?"; //flots
 
     static PrintWriter intWriter;
     static PrintWriter stringWriter;
@@ -23,7 +23,7 @@ public class Application {
     static File floats = new File("floats.txt");
 
     public static void main(String[] args) throws IOException {
-        System.out.println("enter file path: ");
+        System.out.print("Enter file path: ");
         Scanner fileName = new Scanner(System.in);
         File fileNameFromScanner = new File(fileName.nextLine());
 
@@ -49,17 +49,17 @@ public class Application {
 
     //запись в файлы и сбор статистика
     public static void checkLineType(String line){
-        if (line.matches(isInt)) {
+        if (line.matches(intRegex)) {
             countInt++;
             intWriter.append(line).append(String.valueOf('\n'));
             intWriter.flush();
         }
-        if (line.matches(isString)) {
+        if (line.matches(stringRegex)) {
             countString++;
             stringWriter.append(line).append(String.valueOf('\n'));
             stringWriter.flush();
         }
-        if (line.matches(isFloat)) {
+        if (line.matches(floatRegex)) {
             countFloat++;
             floatWriter.append(line).append(String.valueOf('\n'));
             floatWriter.flush();
@@ -86,8 +86,9 @@ public class Application {
 
     //краткая статистика
     public static  void briefStatistics(){
-        System.out.println("int: " + countInt);
-        System.out.println("string: " + countString);
-        System.out.println("float: " + countFloat);
+        System.out.println("Rest statistic: \n\treturn");
+        System.out.println("\t\t└── Integer variable:\t" + countInt);
+        System.out.println("\t\t└─── String variable:\t" + countString);
+        System.out.println("\t\t└──── Float variable:\t" + countFloat);
     }
 }
