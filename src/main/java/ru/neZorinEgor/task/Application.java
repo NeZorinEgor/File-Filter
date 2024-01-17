@@ -34,13 +34,11 @@ public class Application {
         while (scanner.hasNextLine()){
             checkLineType(scanner.nextLine());
         }
-
-        System.out.println("int: " + countInt);
-        System.out.println("string: " + cointString);
-        System.out.println("float: " + cointFloat);
+        briefStatistics();
         scanner.close();
-
     }
+
+    //запись в файлы и сбор статистика
     public static void checkLineType(String line){
         if (line.matches(isInt)) {
             countInt++;
@@ -59,6 +57,7 @@ public class Application {
         }
     }
 
+    //перезапись или добавление в файл
     public static void switchFileWriter(boolean action){
         try {
             intWriter = new PrintWriter(new FileWriter(integers, action));
@@ -67,5 +66,12 @@ public class Application {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    //краткая статистика
+    public static  void briefStatistics(){
+        System.out.println("int: " + countInt);
+        System.out.println("string: " + cointString);
+        System.out.println("float: " + cointFloat);
     }
 }
