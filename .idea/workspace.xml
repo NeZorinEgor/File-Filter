@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b667b8de-1dc2-4f22-9882-3b8368f25534" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/floats.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/integers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/integers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/data/input/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/data/input/input2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strings.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/t1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/t1.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
