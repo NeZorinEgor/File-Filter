@@ -19,14 +19,18 @@
 ## Запуск приложения
 
 ### Запуск приложения, собранного Apache Maven
-//TODO
+//TODO - ошибки, работа через опции, рефакторинг
 
 Промежуточный результат выполнения программы:
+
 ```
 Enter file path: t1.txt
-Rest statistic:
-   return
-      └── Integer variable:	520
-      └─── String variable:	476
-      └──── Float variable:	504
+Rest statistic: 
+	├──return
+	│	├─ Integer variable:	1
+	│	├── String variable:	0
+	│	└─── Float variable:	0
+	└──directory
+		└─ Path:D:\java-app\junior\TestTaskCFT\integers.txt
+End.
 ```
