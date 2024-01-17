@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class Application {
     //type counter
     static int countInt = 0;
-    static int cointString = 0;
-    static int cointFloat = 0;
+    static int countString = 0;
+    static int countFloat = 0;
 
     //regex
     static String isInt = "^[+-]?\\d+$"; //ints
@@ -29,11 +29,20 @@ public class Application {
 
         Scanner scanner = new Scanner(fileNameFromScanner);
 
-        switchFileWriter(true);
+        //перезаписывать или дописывать
+        switchFileWriter(false);
 
         while (scanner.hasNextLine()){
+            //обработка данных
             checkLineType(scanner.nextLine());
         }
+
+        //удаление файла при отсутствии данных
+        closeAndDeleteIfEmpty(countInt, intWriter, integers);
+        closeAndDeleteIfEmpty(countString, stringWriter, strings);
+        closeAndDeleteIfEmpty(countFloat, floatWriter, floats);
+
+        //краткая статистика
         briefStatistics();
         scanner.close();
     }
@@ -46,12 +55,12 @@ public class Application {
             intWriter.flush();
         }
         if (line.matches(isString)) {
-            cointString++;
+            countString++;
             stringWriter.append(line).append(String.valueOf('\n'));
             stringWriter.flush();
         }
         if (line.matches(isFloat)) {
-            cointFloat++;
+            countFloat++;
             floatWriter.append(line).append(String.valueOf('\n'));
             floatWriter.flush();
         }
@@ -68,10 +77,17 @@ public class Application {
         }
     }
 
+    public static void closeAndDeleteIfEmpty(int count, PrintWriter writer, File file) {
+        if (count == 0) {
+            writer.close();
+            file.delete();
+        }
+    }
+
     //краткая статистика
     public static  void briefStatistics(){
         System.out.println("int: " + countInt);
-        System.out.println("string: " + cointString);
-        System.out.println("float: " + cointFloat);
+        System.out.println("string: " + countString);
+        System.out.println("float: " + countFloat);
     }
 }
