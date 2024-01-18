@@ -5,9 +5,7 @@ import java.util.Scanner;
 
 public class Application {
     //type counter
-    static int countInt = 0;
     static int countString = 0;
-    static int countFloat = 0;
 
     //regex
     static String intRegex = "^[+-]?\\d+$"; //ints
@@ -18,14 +16,13 @@ public class Application {
     static PrintWriter stringWriter;
     static PrintWriter floatWriter;
 
-    String prefix = "";
-
     static File integers = new File("integers.txt");
     static File strings = new File("strings.txt");
     static File floats = new File("floats.txt");
 
     public static void main(String[] args) {
-        Analyst analyst = new Analyst();
+        Analyst analyst1 = new Analyst();
+        Analyst analyst2 = new Analyst();
         System.out.print("Enter file path: ");
         Scanner fileName = new Scanner(System.in);
         File fileNameFromScanner = new File(fileName.nextLine());
@@ -35,6 +32,7 @@ public class Application {
         } catch (FileNotFoundException e) {
             System.out.println("Error: file not found. Detail:\n" + e.getMessage());
         }
+        //для опции записи | перезаписи
         switchFileWriter(false);
 
         while (scanner.hasNextLine()) {
@@ -42,28 +40,29 @@ public class Application {
             checkLineType(scanner.nextLine());
             }
 
-            //удаление файла при отсутствии данных
-            closeAndDeleteIfEmpty(countInt, intWriter, integers);
-            closeAndDeleteIfEmpty(countString, stringWriter, strings);
-            closeAndDeleteIfEmpty(countFloat, floatWriter, floats);
-
-            //статистика вид котороый зависит от опции
-            analyst.fullStatistics(integers, floats, strings, true);
+            //опция для статистики простой | полной
+            analyst1.collectAnalysisforIntAndFloat(integers, true);
+            analyst2.collectAnalysisforIntAndFloat(floats, true);
             scanner.close();
+
+            //удаление файла при отсутствии данных
+            closeAndDeleteIfEmpty(analyst1.getCount(), intWriter, integers);
+            closeAndDeleteIfEmpty(analyst2.getCount(), floatWriter, floats);
+            closeAndDeleteIfEmpty(countString, stringWriter, strings);
+
+
+
         }
 
     //запись в файлы и сбор статистика
     public static void checkLineType(String line){
         if (line.matches(intRegex)) {
-            countInt++;
             intWriter.append(line).append('\n').flush();
         }
         if (line.matches(stringRegex)) {
-            countString++;
             stringWriter.append(line).append('\n').flush();
         }
         if (line.matches(floatRegex)) {
-            countFloat++;
             floatWriter.append(line).append('\n').flush();
         }
     }
@@ -79,7 +78,7 @@ public class Application {
         }
     }
 
-    public static void closeAndDeleteIfEmpty(int count, PrintWriter writer, File file) {
+    public static void closeAndDeleteIfEmpty(long count, PrintWriter writer, File file) {
         if (count == 0) {
             writer.close();
             file.delete();
