@@ -1,7 +1,5 @@
 package ru.neZorinEgor.task;
 
-import ru.neZorinEgor.task.CastomErrors.CastomFileNotFoundException;
-
 import java.io.*;
 import java.util.Scanner;
 
@@ -20,28 +18,28 @@ public class Application {
     static PrintWriter stringWriter;
     static PrintWriter floatWriter;
 
+    String prefix = "";
+
     static File integers = new File("integers.txt");
     static File strings = new File("strings.txt");
     static File floats = new File("floats.txt");
 
-    public static void main(String[] args) throws FileNotFoundException {
-        while(true) {
-            System.out.print("Enter file path: ");
-            Scanner fileName = new Scanner(System.in);
-            File fileNameFromScanner = new File(fileName.nextLine());
+    public static void main(String[] args) {
+        Analyst analyst = new Analyst();
+        System.out.print("Enter file path: ");
+        Scanner fileName = new Scanner(System.in);
+        File fileNameFromScanner = new File(fileName.nextLine());
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(fileNameFromScanner);
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: file not found. Detail:\n" + e.getMessage());
+        }
+        switchFileWriter(false);
 
-            Scanner scanner;
-            try {
-                scanner = new Scanner(fileNameFromScanner);
-            } catch (FileNotFoundException e) {
-                throw new CastomFileNotFoundException("Error: file not found. Detail:\n" + e.getMessage());
-            }
-
-            switchFileWriter(false);
-
-            while (scanner.hasNextLine()) {
-                //обработка данных
-                checkLineType(scanner.nextLine());
+        while (scanner.hasNextLine()) {
+            //обработка данных
+            checkLineType(scanner.nextLine());
             }
 
             //удаление файла при отсутствии данных
@@ -49,28 +47,24 @@ public class Application {
             closeAndDeleteIfEmpty(countString, stringWriter, strings);
             closeAndDeleteIfEmpty(countFloat, floatWriter, floats);
 
-            //краткая статистика
-            briefStatistics();
+            //статистика вид котороый зависит от опции
+            analyst.fullStatistics(integers, floats, strings, true);
             scanner.close();
         }
-    }
 
     //запись в файлы и сбор статистика
     public static void checkLineType(String line){
         if (line.matches(intRegex)) {
             countInt++;
-            intWriter.append(line).append(String.valueOf('\n'));
-            intWriter.flush();
+            intWriter.append(line).append('\n').flush();
         }
         if (line.matches(stringRegex)) {
             countString++;
-            stringWriter.append(line).append(String.valueOf('\n'));
-            stringWriter.flush();
+            stringWriter.append(line).append('\n').flush();
         }
         if (line.matches(floatRegex)) {
             countFloat++;
-            floatWriter.append(line).append(String.valueOf('\n'));
-            floatWriter.flush();
+            floatWriter.append(line).append('\n').flush();
         }
     }
 
@@ -90,17 +84,5 @@ public class Application {
             writer.close();
             file.delete();
         }
-    }
-
-    //TODO: реализовать корректный подсчет в бесконечной итерации, руфакторинг, разделение логики
-    //краткая статистика
-    public static  void briefStatistics(){
-        System.out.println("Rest statistic: \n\t├──return");
-        System.out.println("\t│\t├─ Integer variable:\t" + countInt);
-        System.out.println("\t│\t├── String variable:\t" + countString);
-        System.out.println("\t│\t└─── Float variable:\t" + countFloat);
-        System.out.println("\t└──directory");
-        System.out.println("\t\t└─ Path:" + (integers.getAbsolutePath()));
-        System.out.println("End.");
     }
 }
