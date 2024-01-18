@@ -1,14 +1,16 @@
 package ru.neZorinEgor.task;
 
-import ru.neZorinEgor.task.Analysts.Analyst;
-import ru.neZorinEgor.task.Analysts.analysisImpl.NumericAnalyst;
-import ru.neZorinEgor.task.Analysts.analysisImpl.StringAnalyst;
+import ru.neZorinEgor.task.аnalys.Analyst;
+import ru.neZorinEgor.task.аnalys.analysisImpl.NumericAnalyst;
+import ru.neZorinEgor.task.аnalys.analysisImpl.StringAnalyst;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class Application {
-
+    static Analyst integerAnalyst = new NumericAnalyst();
+    static Analyst floatAnalyst = new NumericAnalyst();
+    static Analyst stringAnalyst = new StringAnalyst();
     //regex
     static String intRegex = "^[+-]?\\d+$"; //ints
     static String stringRegex = "^(?![+-]?\\d)(?!\\n)[^\\d ].*$"; //stings
@@ -23,41 +25,38 @@ public class Application {
     static File floats = new File("floats.txt");
 
     public static void main(String[] args) {
-        Analyst analyst1 = new NumericAnalyst();
-        Analyst analyst2 = new NumericAnalyst();
-        Analyst analyst3 = new StringAnalyst();
 
-        System.out.print("Enter file path: ");
-        Scanner fileName = new Scanner(System.in);
-        File fileNameFromScanner = new File(fileName.nextLine());
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(fileNameFromScanner);
-        } catch (FileNotFoundException e) {
-            System.out.println("Error: file not found. Detail:\n" + e.getMessage());
-        }
-        //для опции записи | перезаписи
-        switchFileWriter(false);
 
-        while (scanner.hasNextLine()) {
-            //обработка данных
-            checkLineType(scanner.nextLine());
+        while (true) {
+            System.out.print("Enter file path: ");
+            Scanner fileName = new Scanner(System.in);
+            File fileNameFromScanner = new File(fileName.nextLine());
+            Scanner scanner = null;
+            try {
+                scanner = new Scanner(fileNameFromScanner);
+            } catch (FileNotFoundException e) {
+                System.out.println("Error: file not found. Detail:\n" + e.getMessage());
+            }
+            //для опции записи | перезаписи
+            switchFileWriter(true);
+
+            while (scanner.hasNextLine()) {
+                //обработка данных
+                checkLineType(scanner.nextLine());
             }
 
             //опция для статистики простой | полной
-            analyst1.collectAnalysis(integers, true);
-            analyst2.collectAnalysis(floats, true);
-            analyst3.collectAnalysis(strings, true);
+            integerAnalyst.collectAnalysis(integers, true);
+            floatAnalyst.collectAnalysis(floats, true);
+            stringAnalyst.collectAnalysis(strings, true);
             scanner.close();
 
             //удаление файла при отсутствии данных
-            closeAndDeleteIfEmpty(analyst1.getLineCount(), intWriter, integers);
-            closeAndDeleteIfEmpty(analyst2.getLineCount(), floatWriter, floats);
-            closeAndDeleteIfEmpty(analyst3.getLineCount(), stringWriter, strings);
-
-
-
+            closeAndDeleteIfEmpty(integerAnalyst.getLineLength(), intWriter, integers);
+            closeAndDeleteIfEmpty(floatAnalyst.getLineLength(), floatWriter, floats);
+            closeAndDeleteIfEmpty(stringAnalyst.getLineLength(), stringWriter, strings);
         }
+    }
 
     //запись в файлы и сбор статистика
     public static void checkLineType(String line){
@@ -78,6 +77,7 @@ public class Application {
             intWriter = new PrintWriter(new FileWriter(integers, action));
             stringWriter = new PrintWriter(new FileWriter(strings, action));
             floatWriter = new PrintWriter(new FileWriter(floats, action));
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

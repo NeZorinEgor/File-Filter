@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b667b8de-1dc2-4f22-9882-3b8368f25534" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analysts/Analyst.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/аnalys/Analyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analyst.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/floats.txt" beforeDir="false" afterPath="$PROJECT_DIR$/floats.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/integers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analysts/Analyst.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analysts/analysisImpl/NumericAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/аnalys/analysisImpl/NumericAnalyst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analysts/analysisImpl/StringAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/аnalys/analysisImpl/StringAnalyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strings.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/CastomErrors/CastomFileNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/сastomErrors/CastomFileNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/strings.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

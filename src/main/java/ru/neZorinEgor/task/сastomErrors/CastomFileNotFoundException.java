@@ -1,4 +1,4 @@
-package ru.neZorinEgor.task.CastomErrors;
+package ru.neZorinEgor.task.сastomErrors;
 
 import java.io.FileNotFoundException;
 

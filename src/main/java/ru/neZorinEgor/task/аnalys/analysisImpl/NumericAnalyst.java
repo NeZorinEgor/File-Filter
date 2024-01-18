@@ -1,6 +1,6 @@
-package ru.neZorinEgor.task.Analysts.analysisImpl;
+package ru.neZorinEgor.task.аnalys.analysisImpl;
 
-import ru.neZorinEgor.task.Analysts.Analyst;
+import ru.neZorinEgor.task.аnalys.Analyst;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,11 +24,11 @@ public class NumericAnalyst implements Analyst {
         return count;
     }
 
-    public long getLineCount() {
+    public long getLineLength() {
         return count;
     }
 
-    public void setCount(long count) {
+    public void setLineLength(long count) {
         this.count = count;
     }
 
@@ -60,7 +60,7 @@ public class NumericAnalyst implements Analyst {
             while (scanner.hasNextLine()){
                 float lineValue = Float.parseFloat(scanner.nextLine());
                 setSumm(getSumm()+ lineValue);
-                setCount(getLineCount() + 1);
+                setLineLength(getLineLength() + 1);
                 if (lineValue > getMax()){
                     setMax(lineValue);
                 }
@@ -69,10 +69,11 @@ public class NumericAnalyst implements Analyst {
                 }
             }
             System.out.println("Статистика для: " + file.getName());
-            System.out.println("└─ Количество элементов: " + getLineCount());
+            System.out.println("└─ Количество элементов: " + getLineLength());
             if (option){
                 soutNumericResult();
             }
+            setLineLength(0);
         } else {
             System.out.println("File not exist: " + file.getName());
         }
@@ -83,7 +84,7 @@ public class NumericAnalyst implements Analyst {
         System.out.println("\t\t├── Минимум: " + getMin());
         System.out.println("\t\t├─ Максимум: " + getMax());
         System.out.println("\t\t├──── Сумма: " + summ);
-        System.out.println("\t\t└── Среднее: " + summ / getLineCount());
+        System.out.println("\t\t└── Среднее: " + summ / getLineLength());
         System.out.println();
     }
 }

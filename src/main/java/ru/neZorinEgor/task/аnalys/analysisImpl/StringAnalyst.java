@@ -1,6 +1,6 @@
-package ru.neZorinEgor.task.Analysts.analysisImpl;
+package ru.neZorinEgor.task.аnalys.analysisImpl;
 
-import ru.neZorinEgor.task.Analysts.Analyst;
+import ru.neZorinEgor.task.аnalys.Analyst;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,11 +15,11 @@ public class StringAnalyst implements Analyst {
         return lineCount;
     }
 
-    public long getLineCount() {
+    public long getLineLength() {
         return lineCount;
     }
 
-    public void setCount(long count) {
+    public void setLineLength(long count) {
         this.lineCount = count;
     }
 
@@ -49,7 +49,7 @@ public class StringAnalyst implements Analyst {
             }
 
             while (scanner.hasNextLine()){
-                setCount(getCount() + 1);
+                setLineLength(getCount() + 1);
                 String lineValue = String.valueOf(scanner.nextLine());
                 if (lineValue.length() > getMax()){
                     setMax(lineValue.length());
@@ -59,10 +59,12 @@ public class StringAnalyst implements Analyst {
                 }
             }
             System.out.println("Статистика для: " + file.getName());
-            System.out.println("└─ Количество элементов: " + getLineCount());
+            System.out.println("└─ Количество элементов: " + getLineLength());
             if (option){
                 soutNumericResult();
             }
+            //что бы в цикле корректно выводить колличество элементов
+            setLineLength(0);
         } else {
             System.out.println("File not exist: " + file.getName());
         }
