@@ -1,33 +1,26 @@
-package ru.neZorinEgor.task;
+package ru.neZorinEgor.task.Analysts.analysisImpl;
+
+import ru.neZorinEgor.task.Analysts.Analyst;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Analyst {
+public class StringAnalyst implements Analyst {
     private double min = 10000000; //поле для перезаписи при сравнение
     private double max = -1000000; //поле для перезаписи при сравнение
-    private double summ = 0;
-    private long count = 0;
-
-    public double getSumm() {
-        return summ;
-    }
-
-    public void setSumm(double summ) {
-        this.summ = summ;
-    }
+    private long lineCount = 0;
 
     public long getCount() {
-        return count;
+        return lineCount;
     }
 
     public long getLineCount() {
-        return count;
+        return lineCount;
     }
 
     public void setCount(long count) {
-        this.count = count;
+        this.lineCount = count;
     }
 
     public double getMin() {
@@ -46,7 +39,7 @@ public class Analyst {
         this.max = max;
     }
 
-    public void collectAnalysisforIntAndFloat(File file, boolean option){
+    public void collectAnalysis(File file, boolean option){
         if (file.exists()){
             Scanner scanner = null;
             try {
@@ -56,14 +49,13 @@ public class Analyst {
             }
 
             while (scanner.hasNextLine()){
-                float lineValue = Float.parseFloat(scanner.nextLine());
-                setSumm(getSumm()+ lineValue);
-                setCount(getLineCount() + 1);
-                if (lineValue > getMax()){
-                    setMax(lineValue);
+                setCount(getCount() + 1);
+                String lineValue = String.valueOf(scanner.nextLine());
+                if (lineValue.length() > getMax()){
+                    setMax(lineValue.length());
                 }
-                if (lineValue < getMin()){
-                    setMin(lineValue);
+                if (lineValue.length() < getMin()){
+                    setMin(lineValue.length());
                 }
             }
             System.out.println("Статистика для: " + file.getName());
@@ -78,11 +70,8 @@ public class Analyst {
 
     public void soutNumericResult(){
         System.out.println("\t└─ Дополнительные детали:\t");
-        System.out.println("\t\t├── Минимум: " + getMin());
-        System.out.println("\t\t├─ Максимум: " + getMax());
-        System.out.println("\t\t├──── Сумма: " + summ);
-        System.out.println("\t\t└── Среднее: " + summ / getLineCount());
+        System.out.println("\t\t├─────── min: " + getMin());
+        System.out.println("\t\t└─────── max: " + getMax());
         System.out.println();
     }
-
 }

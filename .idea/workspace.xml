@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b667b8de-1dc2-4f22-9882-3b8368f25534" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analysts/Analyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/floats.txt" beforeDir="false" afterPath="$PROJECT_DIR$/floats.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/integers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analyst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analyst.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/t1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strings.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -38,19 +39,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last.edited.regexp&quot;: &quot;as&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/zorin/OneDrive/Рабочий стол/interpreter&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last.edited.regexp": "as",
+    "last_opened_file_path": "C:/Users/zorin/OneDrive/Рабочий стол/interpreter",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.neZorinEgor.task.Analysts.analysisImpl" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\java-app\junior\TestTaskCFT" />
       <recent name="D:\java-app\junior\TestTaskCFT\src\main\java\ru\neZorinEgor\task\data\input" />
@@ -58,6 +63,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\java-app\junior\TestTaskCFT" />
       <recent name="D:\java-app\junior\TestTaskCFT\src\main\java\ru\neZorinEgor\task" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.neZorinEgor.task.Analysts.analysisImpl" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Application">

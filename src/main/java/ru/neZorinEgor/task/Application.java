@@ -1,11 +1,13 @@
 package ru.neZorinEgor.task;
 
+import ru.neZorinEgor.task.Analysts.Analyst;
+import ru.neZorinEgor.task.Analysts.analysisImpl.NumericAnalyst;
+import ru.neZorinEgor.task.Analysts.analysisImpl.StringAnalyst;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class Application {
-    //type counter
-    static int countString = 0;
 
     //regex
     static String intRegex = "^[+-]?\\d+$"; //ints
@@ -21,8 +23,10 @@ public class Application {
     static File floats = new File("floats.txt");
 
     public static void main(String[] args) {
-        Analyst analyst1 = new Analyst();
-        Analyst analyst2 = new Analyst();
+        Analyst analyst1 = new NumericAnalyst();
+        Analyst analyst2 = new NumericAnalyst();
+        Analyst analyst3 = new StringAnalyst();
+
         System.out.print("Enter file path: ");
         Scanner fileName = new Scanner(System.in);
         File fileNameFromScanner = new File(fileName.nextLine());
@@ -41,14 +45,15 @@ public class Application {
             }
 
             //опция для статистики простой | полной
-            analyst1.collectAnalysisforIntAndFloat(integers, true);
-            analyst2.collectAnalysisforIntAndFloat(floats, true);
+            analyst1.collectAnalysis(integers, true);
+            analyst2.collectAnalysis(floats, true);
+            analyst3.collectAnalysis(strings, true);
             scanner.close();
 
             //удаление файла при отсутствии данных
-            closeAndDeleteIfEmpty(analyst1.getCount(), intWriter, integers);
-            closeAndDeleteIfEmpty(analyst2.getCount(), floatWriter, floats);
-            closeAndDeleteIfEmpty(countString, stringWriter, strings);
+            closeAndDeleteIfEmpty(analyst1.getLineCount(), intWriter, integers);
+            closeAndDeleteIfEmpty(analyst2.getLineCount(), floatWriter, floats);
+            closeAndDeleteIfEmpty(analyst3.getLineCount(), stringWriter, strings);
 
 
 
