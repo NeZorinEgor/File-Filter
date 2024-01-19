@@ -1,8 +1,9 @@
 package ru.neZorinEgor.task;
 
-import ru.neZorinEgor.task.analys.Analyst;
-import ru.neZorinEgor.task.analys.analysisImpl.NumericAnalyst;
-import ru.neZorinEgor.task.analys.analysisImpl.StringAnalyst;
+
+import ru.neZorinEgor.task.Analys.Analyst;
+import ru.neZorinEgor.task.Analys.analysisImpl.NumericAnalyst;
+import ru.neZorinEgor.task.Analys.analysisImpl.StringAnalyst;
 
 import java.io.*;
 import java.util.Scanner;
@@ -37,7 +38,7 @@ public class Application {
             }
             //TODO засунуть в опцию
             //для опции записи | перезаписи
-            switchFileWriter(true);
+            switchFileWriter(false);
 
             try {
                 while (scanner.hasNextLine()) {
@@ -45,9 +46,9 @@ public class Application {
                     checkLineType(scanner.nextLine());
                 }
                 //опция для статистики простой | полной
-                integerAnalyst.doAnalysisAndGetStatistics(integers, true);
-                floatAnalyst.doAnalysisAndGetStatistics(floats, true);
-                stringAnalyst.doAnalysisAndGetStatistics(strings, true);
+                integerAnalyst.doAnalysis(integers, true);
+                floatAnalyst.doAnalysis(floats, true);
+                stringAnalyst.doAnalysis(strings, true);
                 scanner.close();
 
                 //удаление файла при отсутствии данных

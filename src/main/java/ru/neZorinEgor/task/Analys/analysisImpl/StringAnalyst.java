@@ -1,6 +1,6 @@
-package ru.neZorinEgor.task.analys.analysisImpl;
+package ru.neZorinEgor.task.Analys.analysisImpl;
 
-import ru.neZorinEgor.task.analys.Analyst;
+import ru.neZorinEgor.task.Analys.Analyst;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -39,10 +39,13 @@ public class StringAnalyst implements Analyst {
         this.max = max;
     }
 
-    public void doAnalysisAndGetStatistics(File file, boolean option){
+    public void doAnalysis(File file, boolean option){
+
         if (file.exists()){
             // настройки для корректного присвоения при
             //                         первой итерации и корректного вывода информации в цикле
+            //TODO починить счетчик, если изначально поступает пустой файл
+
             setMin(1000000000);
             setMax(0);
             Scanner scanner;

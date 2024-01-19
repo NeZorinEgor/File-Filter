@@ -1,4 +1,4 @@
-package ru.neZorinEgor.task.analys;
+package ru.neZorinEgor.task.Analys;
 
 import java.io.File;
 
@@ -13,7 +13,7 @@ public interface Analyst {
      * @param file - файл для анализа
      * @param option - true полная статистика / false коротка
      */
-    void doAnalysisAndGetStatistics(File file, boolean option);
+    void doAnalysis(File file, boolean option);
 
     /**
      * @return Количество строк в файле
