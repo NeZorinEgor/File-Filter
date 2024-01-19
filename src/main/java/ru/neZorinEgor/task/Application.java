@@ -1,8 +1,8 @@
 package ru.neZorinEgor.task;
 
-import ru.neZorinEgor.task.аnalys.Analyst;
-import ru.neZorinEgor.task.аnalys.analysisImpl.NumericAnalyst;
-import ru.neZorinEgor.task.аnalys.analysisImpl.StringAnalyst;
+import ru.neZorinEgor.task.analys.Analyst;
+import ru.neZorinEgor.task.analys.analysisImpl.NumericAnalyst;
+import ru.neZorinEgor.task.analys.analysisImpl.StringAnalyst;
 
 import java.io.*;
 import java.util.Scanner;
@@ -25,8 +25,6 @@ public class Application {
     static File floats = new File("floats.txt");
 
     public static void main(String[] args) {
-
-
         while (true) {
             System.out.print("Enter file path: ");
             Scanner fileName = new Scanner(System.in);
@@ -35,26 +33,42 @@ public class Application {
             try {
                 scanner = new Scanner(fileNameFromScanner);
             } catch (FileNotFoundException e) {
-                System.out.println("Error: file not found. Detail:\n" + e.getMessage());
+                System.out.println("Ошибка ввода: " + e.getMessage());
             }
+            //TODO засунуть в опцию
             //для опции записи | перезаписи
             switchFileWriter(true);
 
-            while (scanner.hasNextLine()) {
-                //обработка данных
-                checkLineType(scanner.nextLine());
+            try {
+                while (scanner.hasNextLine()) {
+                    //обработка данных
+                    checkLineType(scanner.nextLine());
+                }
+                //опция для статистики простой | полной
+                integerAnalyst.doAnalysisAndGetStatistics(integers, true);
+                floatAnalyst.doAnalysisAndGetStatistics(floats, true);
+                stringAnalyst.doAnalysisAndGetStatistics(strings, true);
+                scanner.close();
+
+                //удаление файла при отсутствии данных
+                closeAndDeleteIfEmpty(integerAnalyst.getLineCount(), intWriter, integers);
+                closeAndDeleteIfEmpty(floatAnalyst.getLineCount(), floatWriter, floats);
+                closeAndDeleteIfEmpty(stringAnalyst.getLineCount(), stringWriter, strings);
+            } catch (NullPointerException e) {
+                System.out.println("Убедитесь в наименовании файла");
             }
+        }
 
-            //опция для статистики простой | полной
-            integerAnalyst.collectAnalysis(integers, true);
-            floatAnalyst.collectAnalysis(floats, true);
-            stringAnalyst.collectAnalysis(strings, true);
-            scanner.close();
+    }
 
-            //удаление файла при отсутствии данных
-            closeAndDeleteIfEmpty(integerAnalyst.getLineLength(), intWriter, integers);
-            closeAndDeleteIfEmpty(floatAnalyst.getLineLength(), floatWriter, floats);
-            closeAndDeleteIfEmpty(stringAnalyst.getLineLength(), stringWriter, strings);
+    //перезапись или добавление в файл
+    public static void switchFileWriter(boolean action){
+        try {
+            intWriter = new PrintWriter(new FileWriter(integers, action));
+            stringWriter = new PrintWriter(new FileWriter(strings, action));
+            floatWriter = new PrintWriter(new FileWriter(floats, action));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -68,18 +82,6 @@ public class Application {
         }
         if (line.matches(floatRegex)) {
             floatWriter.append(line).append('\n').flush();
-        }
-    }
-
-    //перезапись или добавление в файл
-    public static void switchFileWriter(boolean action){
-        try {
-            intWriter = new PrintWriter(new FileWriter(integers, action));
-            stringWriter = new PrintWriter(new FileWriter(strings, action));
-            floatWriter = new PrintWriter(new FileWriter(floats, action));
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 
