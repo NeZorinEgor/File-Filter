@@ -41,7 +41,8 @@ public class StringAnalyst implements Analyst {
 
     public void doAnalysisAndGetStatistics(File file, boolean option){
         if (file.exists()){
-            // настройки для корректного присвоения при первой итерации
+            // настройки для корректного присвоения при
+            //                         первой итерации и корректного вывода информации в цикле
             setMin(1000000000);
             setMax(0);
             Scanner scanner;
@@ -70,6 +71,7 @@ public class StringAnalyst implements Analyst {
             }
             //что бы в цикле корректно выводить колличество элементов
             setLineLength(0);
+
         } else {
             System.out.println("File not exist: " + file.getName());
         }

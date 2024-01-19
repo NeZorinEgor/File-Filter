@@ -48,13 +48,17 @@ public class NumericAnalyst implements Analyst {
 
     public void doAnalysisAndGetStatistics(File file, boolean option){
         if (file.exists()){
+            // настройки для корректного присвоения при
+            //                         первой итерации и корректного вывода информации в цикле
             setSumm(0);
             setMin(10000);
             setMax(-10000);
+
             Scanner scanner;
             try {
                 scanner = new Scanner(file);
             } catch (FileNotFoundException e) {
+                //ошибка не выкенится, она обработается в точке входа приложения
                 throw new RuntimeException(e);
             }
 
