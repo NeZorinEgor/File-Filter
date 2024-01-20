@@ -113,18 +113,27 @@ public class FileManager {
             getIntWriter().close();
             if (integers.exists()) {
                 integers.delete();
+                if(!integers.exists()){
+                    System.out.println("Удалил числа");
+                }
             }
         }
         if (stringCount == 0) {
             getStringWriter().close();
             if (strings.exists()) {
                 strings.delete();
+                if(!strings.exists()){
+                    System.out.println("Удалил строки");
+                }
             }
         }
         if (floatCount == 0) {
             getFloatWriter().close();
             if (floats.exists()) {
                 floats.delete();
+                if(!floats.exists()){
+                    System.out.println("Удалил флоты");
+                }
             }
         }
     }

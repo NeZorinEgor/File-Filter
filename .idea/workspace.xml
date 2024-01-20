@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b667b8de-1dc2-4f22-9882-3b8368f25534" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/integers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/Analyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/Analyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/NumericAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/NumericAnalyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/StringAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/StringAnalyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/FileManager/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/FileManager/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/strings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/strings.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/t1.txt" afterDir="false" />
     </list>
@@ -48,6 +46,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;20&quot;,
     &quot;last.edited.regexp&quot;: &quot;&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/zorin/OneDrive/Рабочий стол/interpreter&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
@@ -98,9 +97,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.neZorinEgor.task.Test" />
+      <module name="TestTaskCFT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.neZorinEgor.task.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Analyst" />
       </list>
     </recent_temporary>

@@ -53,7 +53,7 @@ public class NumericAnalyst implements Analyst {
     }
 
     public void analysisAndPrint(File file){
-        if (file.exists() || getLineCount() != 0){
+        if (file.exists()){
             //TODO починить счетчик, если изначально поступает пустой файл
 //            if (getLineCount() !=0) {
 //                setSumm(0);
