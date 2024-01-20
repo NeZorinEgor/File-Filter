@@ -13,17 +13,9 @@ public class FileManager {
     int stringCount = 0;
 
 
-    private boolean appendLine;
-
-    // Регулярные выражения для фильтрации строк
-    private final String intRegex = "^[+-]?\\d+$"; // целые числа
-    private final String stringRegex = "^(?![+-]?\\d)(?!\\n)[^\\d ].*$"; // строки
-    private final String floatRegex = "[+-]?\\d+\\.\\d+([eE][+-]?\\d+)?"; // числа с плавающей точкой
-
     // Конструктор класса, принимающий флаг для записи / перезаписи
     public FileManager(boolean appendLine) {
         // Инициализация флага
-        this.appendLine = appendLine;
 
         try {
             // Проверка существования файлов и их создание, если не существуют
@@ -38,9 +30,9 @@ public class FileManager {
             }
 
             // Инициализация PrintWriter с возможностью перезаписи файлов
-            intWriter = new PrintWriter(new FileWriter(integers, this.appendLine));
-            stringWriter = new PrintWriter(new FileWriter(strings, this.appendLine));
-            floatWriter = new PrintWriter(new FileWriter(floats, this.appendLine));
+            intWriter = new PrintWriter(new FileWriter(integers, appendLine));
+            stringWriter = new PrintWriter(new FileWriter(strings, appendLine));
+            floatWriter = new PrintWriter(new FileWriter(floats, appendLine));
         } catch (IOException e) {
             // Обработка ошибок при работе с файлами
             throw new RuntimeException(e);
@@ -52,20 +44,24 @@ public class FileManager {
     private final PrintWriter floatWriter;
 
     // Файлы для каждого типа строки
-    private File integers = new File("integers.txt");
-    private File strings = new File("strings.txt");
-    private File floats = new File("floats.txt");
+    private final File integers = new File("integers.txt");
+    private final File strings = new File("strings.txt");
+    private final File floats = new File("floats.txt");
 
     public String getIntRegex() {
-        return intRegex;
+        // Регулярные выражения для фильтрации строк
+        // целые числа
+        return "^[+-]?\\d+$";
     }
 
     public String getStringRegex() {
-        return stringRegex;
+        // строки
+        return "^(?![+-]?\\d)(?!\\n)[^\\d ].*$";
     }
 
     public String getFloatRegex() {
-        return floatRegex;
+        // числа с плавающей точкой
+        return "[+-]?\\d+\\.\\d+([eE][+-]?\\d+)?";
     }
 
     public PrintWriter getIntWriter() {
@@ -113,27 +109,18 @@ public class FileManager {
             getIntWriter().close();
             if (integers.exists()) {
                 integers.delete();
-                if(!integers.exists()){
-                    System.out.println("Удалил числа");
-                }
             }
         }
         if (stringCount == 0) {
             getStringWriter().close();
             if (strings.exists()) {
                 strings.delete();
-                if(!strings.exists()){
-                    System.out.println("Удалил строки");
-                }
             }
         }
         if (floatCount == 0) {
             getFloatWriter().close();
             if (floats.exists()) {
                 floats.delete();
-                if(!floats.exists()){
-                    System.out.println("Удалил флоты");
-                }
             }
         }
     }

@@ -11,8 +11,9 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
+        //TODO OptionsCoordinator  - сущьность, которая
         // Инициализация объектов
-        FileManager fileManager = new FileManager(true);
+        FileManager fileManager = new FileManager(false);
         Analyst integerAnalyst = new NumericAnalyst(true);
         Analyst floatAnalyst = new NumericAnalyst(true);
         Analyst stringAnalyst = new StringAnalyst(true);
@@ -20,19 +21,19 @@ public class Application {
         // Ввод пути к файлу
         System.out.print("Enter file path: ");
 
-        Scanner fileName = new Scanner(System.in);
-        String fileNames = fileName.nextLine();
-        String[] split = fileNames.split("\\s+");
+        Scanner readFiles = new Scanner(System.in);
+        String files = readFiles.nextLine();
+        String[] split = files.split("\\s+");
         for (String file : split){
             File fileNameFromScanner = new File(file);
-            try{
-                Scanner scanner = new Scanner(fileNameFromScanner);
+            try(Scanner scanner = new Scanner(fileNameFromScanner)){
                 while (scanner.hasNextLine()) {
                     fileManager.doFilter(scanner.nextLine());
                 }
                 fileManager.deleteFileIfEmpty();
             } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
+                System.out.println("Ошибка ввода: " + e.getMessage());
+                System.exit(130);
             }
         }
         // Анализ и вывод результатов

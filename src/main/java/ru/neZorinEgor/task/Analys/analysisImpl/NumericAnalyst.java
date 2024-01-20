@@ -5,6 +5,7 @@ import ru.neZorinEgor.task.FileManager.FileManager;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class NumericAnalyst implements Analyst {
@@ -54,12 +55,6 @@ public class NumericAnalyst implements Analyst {
 
     public void analysisAndPrint(File file){
         if (file.exists()){
-            //TODO починить счетчик, если изначально поступает пустой файл
-//            if (getLineCount() !=0) {
-//                setSumm(0);
-//                setMin(10000);
-//                setMax(-10000);
-//            }
             Scanner scanner;
             try {
                 scanner = new Scanner(file);
@@ -79,26 +74,23 @@ public class NumericAnalyst implements Analyst {
                     setMin(lineValue);
                 }
             }
-            System.out.println("Статистика для: " + file.getName());
-            System.out.println("└─ Количество элементов: " + getLineCount());
+            System.out.println("Statistics for: " + file.getName());
+            System.out.println("└─ Number of elements: " + getLineCount());
             if (fullStatistic){
                 soutNumericResult();
             }
             setLineLength(0);
-//            setSumm(0);
-//            setMin(10000);
-//            setMax(-10000);
         } else {
             System.out.println("File not exist: " + file.getName());
         }
     }
 
     public void soutNumericResult(){
-        System.out.println("\t└─ Дополнительные детали:\t");
-        System.out.println("\t\t├── Минимум: " + getMin());
-        System.out.println("\t\t├─ Максимум: " + getMax());
-        System.out.println("\t\t├──── Сумма: " + summ);
-        System.out.println("\t\t└── Среднее: " + summ / getLineCount());
+        System.out.println("\t└─ Additional details:\t");
+        System.out.println("\t\t├── Minimum: " + getMin());
+        System.out.println("\t\t├── Maximum: " + getMax());
+        System.out.println("\t\t├─── Amount: " + summ);
+        System.out.println("\t\t└── Average: " + summ / getLineCount());
         System.out.println();
     }
 }

@@ -73,8 +73,8 @@ public class StringAnalyst implements Analyst {
                     setMin(lineValue.length());
                 }
             }
-            System.out.println("Статистика для: " + file.getName());
-            System.out.println("└─ Количество элементов: " + getLineCount());
+            System.out.println("Statistics for: " + file.getName());
+            System.out.println("└─ Number of elements: " + getLineCount());
             if (fullStatistic){
                 soutNumericResult();
             }
@@ -87,9 +87,9 @@ public class StringAnalyst implements Analyst {
     }
 
     public void soutNumericResult(){
-        System.out.println("\t└─ Дополнительные детали:\t");
-        System.out.println("\t\t├─────── min: " + getMin());
-        System.out.println("\t\t└─────── max: " + getMax());
+        System.out.println("\t└─ Additional details:\t");
+        System.out.println("\t\t├─────── Minimum length: " + getMin());
+        System.out.println("\t\t└─────── Maximum length: " + getMax());
         System.out.println();
     }
 }

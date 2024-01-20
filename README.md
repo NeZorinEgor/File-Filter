@@ -24,26 +24,27 @@
 Промежуточный результат выполнения программы:
 
 ```
-Enter file path: t1.txt
-Статистика для: integers.txt
-└─ Количество элементов: 3
-	└─ Дополнительные детали:	
-		├── Минимум: 45.0
-		├─ Максимум: 100500.0
-		├──── Сумма: 107334.0
-		└── Среднее: 35778.0
+Enter file path: t1.txt t2.txt
+Statistics for: integers.txt
+└─ Number of elements: 3
+	└─ Additional details:	
+		├── Minimum: 45.0
+		├── Maximum: 1234567.0
+		├─── Amount: 1335112.0
+		└── Average: 445037.3333333333
 
-Статистика для: floats.txt
-└─ Количество элементов: 3
-	└─ Дополнительные детали:	
-		├── Минимум: -0.001
-		├─ Максимум: 3.1415
-		├──── Сумма: 3.1405
-		└── Среднее: 1.0468334
+Statistics for: floats.txt
+└─ Number of elements: 3
+	└─ Additional details:	
+		├── Minimum: -9.999999747378752E-6
+		├── Maximum: 3.1414999961853027
+		├─── Amount: 3.1414899961855554
+		└── Average: 1.0471633320618519
 
-Статистика для: strings.txt
-└─ Количество элементов: 6
-	└─ Дополнительные детали:	
-		├─────── min: Long
-		└─────── max: Нормальная форма числа с плавающей запятой
+Statistics for: strings.txt
+└─ Number of elements: 6
+	└─ Additional details:	
+		├─────── Minimum length: 4.0
+		└─────── Maximum length: 42.0
+
 ```
