@@ -8,12 +8,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class NumericAnalyst implements Analyst {
-    public NumericAnalyst(boolean option){
-        this.option = option;
+    public NumericAnalyst(boolean fullStatistic){
+        this.fullStatistic = fullStatistic;
 
     }
 
-    private boolean option;
+    private boolean fullStatistic;
 
     private double min = 10000000; //поле для перезаписи при сравнение
     private double max = -1000000; //поле для перезаписи при сравнение
@@ -52,10 +52,8 @@ public class NumericAnalyst implements Analyst {
         this.max = max;
     }
 
-    public void doAnalysis(File file){
+    public void analysisAndPrint(File file){
         if (file.exists() || getLineCount() != 0){
-            // настройки для корректного присвоения при
-            //                         первой итерации и корректного вывода информации в цикле
             //TODO починить счетчик, если изначально поступает пустой файл
 //            if (getLineCount() !=0) {
 //                setSumm(0);
@@ -83,13 +81,13 @@ public class NumericAnalyst implements Analyst {
             }
             System.out.println("Статистика для: " + file.getName());
             System.out.println("└─ Количество элементов: " + getLineCount());
-            if (option){
+            if (fullStatistic){
                 soutNumericResult();
             }
             setLineLength(0);
-            setSumm(0);
-            setMin(10000);
-            setMax(-10000);
+//            setSumm(0);
+//            setMin(10000);
+//            setMax(-10000);
         } else {
             System.out.println("File not exist: " + file.getName());
         }

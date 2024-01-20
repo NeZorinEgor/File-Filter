@@ -13,34 +13,31 @@ public class Application {
 
 
     public static void main(String[] args) {
-        FileManager fileManager = new FileManager(false);
-        Analyst integerAnalyst = new NumericAnalyst(false);
-        Analyst floatAnalyst = new NumericAnalyst(false);
-        Analyst stringAnalyst = new StringAnalyst(false);
+        while (true){
+            // Инициализация объектов
+            FileManager fileManager = new FileManager(false);
+            Analyst integerAnalyst = new NumericAnalyst(true);
+            Analyst floatAnalyst = new NumericAnalyst(true);
+            Analyst stringAnalyst = new StringAnalyst(true);
 
-        System.out.print("Enter file path: ");
-        Scanner fileName = new Scanner(System.in);
-        File fileNameFromScanner = new File(fileName.nextLine());
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(fileNameFromScanner);
-        } catch (FileNotFoundException e) {
-            System.out.println("Ошибка ввода: " + e.getMessage());
-        }
-        try {
-            while (scanner.hasNextLine()) {
-                fileManager.doFilter(scanner.nextLine());
+            // Ввод пути к файлу
+            System.out.print("Enter file path: ");
+            Scanner fileName = new Scanner(System.in);
+            File fileNameFromScanner = new File(fileName.nextLine());
+
+            try (Scanner scanner = new Scanner(fileNameFromScanner)) {
+                while (scanner.hasNextLine()) {
+                    fileManager.doFilter(scanner.nextLine());
+                }
+                fileManager.deleteFileIfEmpty();
+
+                // Анализ и вывод результатов
+                integerAnalyst.analysisAndPrint(fileManager.getIntegers());
+                floatAnalyst.analysisAndPrint(fileManager.getFloats());
+                stringAnalyst.analysisAndPrint(fileManager.getStrings());
+            } catch (FileNotFoundException e) {
+                System.out.println("Ошибка ввода: " + e.getMessage());
             }
-            fileManager.checkFile();
-
-            //опция для статистики простой | полной
-            integerAnalyst.doAnalysis(fileManager.getIntegers());
-            floatAnalyst.doAnalysis(fileManager.getFloats());
-            stringAnalyst.doAnalysis(fileManager.getStrings());
-
-            scanner.close();
-        } catch (NullPointerException e) {
-            System.out.println("Убедитесь в наименовании файла");
         }
     }
 }

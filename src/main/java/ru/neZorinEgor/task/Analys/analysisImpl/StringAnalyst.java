@@ -7,12 +7,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class StringAnalyst implements Analyst {
-    public StringAnalyst(boolean option){
-        this.option = option;
+    public StringAnalyst(boolean fullStatistic){
+        this.fullStatistic = fullStatistic;
 
     }
 
-    private boolean option;
+    private boolean fullStatistic;
 
     private double min; //поле для перезаписи при сравнение
     private double max; //поле для перезаписи при сравнение
@@ -46,7 +46,7 @@ public class StringAnalyst implements Analyst {
         this.max = max;
     }
 
-    public void doAnalysis(File file){
+    public void analysisAndPrint(File file){
 
         if (file.exists()){
             // настройки для корректного присвоения при
@@ -75,7 +75,7 @@ public class StringAnalyst implements Analyst {
             }
             System.out.println("Статистика для: " + file.getName());
             System.out.println("└─ Количество элементов: " + getLineCount());
-            if (option){
+            if (fullStatistic){
                 soutNumericResult();
             }
             //что бы в цикле корректно выводить колличество элементов

@@ -6,18 +6,46 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class FileManager {
+
+    //счетчики для проверки файла напустоту
+    int intCount = 0;
+    int floatCount = 0;
+    int stringCount = 0;
+
+
+    private boolean appendLine;
+
     // Регулярные выражения для фильтрации строк
     private final String intRegex = "^[+-]?\\d+$"; // целые числа
     private final String stringRegex = "^(?![+-]?\\d)(?!\\n)[^\\d ].*$"; // строки
     private final String floatRegex = "[+-]?\\d+\\.\\d+([eE][+-]?\\d+)?"; // числа с плавающей точкой
 
-    int intCount = 0;
-    int floatCount = 0;
-    int stringCount = 0;
+    // Конструктор класса, принимающий флаг для записи / перезаписи
+    public FileManager(boolean appendLine) {
+        // Инициализация флага
+        this.appendLine = appendLine;
 
-    // Флаг для определения, нужно ли перезаписывать файлы
-    private boolean switchFileWriter;
+        try {
+            // Проверка существования файлов и их создание, если не существуют
+            if (!integers.exists()) {
+                integers.createNewFile();
+            }
+            if (!strings.exists()) {
+                strings.createNewFile();
+            }
+            if (!floats.exists()) {
+                floats.createNewFile();
+            }
 
+            // Инициализация PrintWriter с возможностью перезаписи файлов
+            intWriter = new PrintWriter(new FileWriter(integers, this.appendLine));
+            stringWriter = new PrintWriter(new FileWriter(strings, this.appendLine));
+            floatWriter = new PrintWriter(new FileWriter(floats, this.appendLine));
+        } catch (IOException e) {
+            // Обработка ошибок при работе с файлами
+            throw new RuntimeException(e);
+        }
+    }
     // PrintWriter для каждого типа строки
     private final PrintWriter intWriter;
     private final PrintWriter stringWriter;
@@ -38,10 +66,6 @@ public class FileManager {
 
     public String getFloatRegex() {
         return floatRegex;
-    }
-
-    public boolean isSwitchFileWriter() {
-        return switchFileWriter;
     }
 
     public PrintWriter getIntWriter() {
@@ -68,38 +92,6 @@ public class FileManager {
         return floats;
     }
 
-
-
-
-    // Конструктор класса, принимающий флаг switchFileWriter
-    public FileManager(boolean switchFileWriter) {
-        // Инициализация флага
-        this.switchFileWriter = switchFileWriter;
-
-        try {
-            // Проверка существования файлов и их создание, если не существуют
-            if (!integers.exists()) {
-                integers.createNewFile();
-            }
-            if (!strings.exists()) {
-                strings.createNewFile();
-            }
-            if (!floats.exists()) {
-                floats.createNewFile();
-            }
-
-            // Инициализация PrintWriter с возможностью перезаписи файлов
-            intWriter = new PrintWriter(new FileWriter(integers, this.switchFileWriter));
-            stringWriter = new PrintWriter(new FileWriter(strings, this.switchFileWriter));
-            floatWriter = new PrintWriter(new FileWriter(floats, this.switchFileWriter));
-        } catch (IOException e) {
-            // Обработка ошибок при работе с файлами
-            throw new RuntimeException(e);
-        }
-    }
-
-
-
     //запись в файлы и сбор статистика
     public void doFilter(String line){
         if (line.matches(getIntRegex())) {
@@ -116,18 +108,24 @@ public class FileManager {
         }
     }
 
-    public void checkFile(){
-        if (intCount == 0){
+    public void deleteFileIfEmpty() {
+        if (intCount == 0) {
             getIntWriter().close();
-            integers.delete();
+            if (integers.exists()) {
+                integers.delete();
+            }
         }
-        if (stringCount == 0){
+        if (stringCount == 0) {
             getStringWriter().close();
-            strings.delete();
+            if (strings.exists()) {
+                strings.delete();
+            }
         }
-        if (floatCount == 0){
+        if (floatCount == 0) {
             getFloatWriter().close();
-            floats.delete();
+            if (floats.exists()) {
+                floats.delete();
+            }
         }
     }
 

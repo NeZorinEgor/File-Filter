@@ -6,16 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b667b8de-1dc2-4f22-9882-3b8368f25534" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/floats.txt" beforeDir="false" afterPath="$PROJECT_DIR$/floats.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/integers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/integers.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/Analyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/Analyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/NumericAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/NumericAnalyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/StringAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/StringAnalyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/FileManager/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/FileManager/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/strings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/strings.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/t1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/t2.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
