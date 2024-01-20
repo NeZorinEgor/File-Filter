@@ -8,12 +8,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/floats.txt" beforeDir="false" afterPath="$PROJECT_DIR$/floats.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/integers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/integers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/Analyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/Analyst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/NumericAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/NumericAnalyst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/StringAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/StringAnalyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/analys/Analyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/Analyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/analys/analysisImpl/NumericAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/NumericAnalyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/analys/analysisImpl/StringAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/StringAnalyst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/FileManager/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/FileManager/FileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/strings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/strings.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/t1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/t2.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,18 +44,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last.edited.regexp": "",
-    "last_opened_file_path": "C:/Users/zorin/OneDrive/Рабочий стол/interpreter",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last.edited.regexp&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zorin/OneDrive/Рабочий стол/interpreter&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ru.neZorinEgor.task.Analysts.analysisImpl" />

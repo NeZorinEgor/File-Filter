@@ -13,7 +13,7 @@ public interface Analyst {
      * @param file - файл для анализа
      * @param option - true полная статистика / false коротка
      */
-    void doAnalysis(File file, boolean option);
+    void doAnalysis(File file);
 
     /**
      * @return Количество строк в файле

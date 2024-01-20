@@ -1,12 +1,20 @@
 package ru.neZorinEgor.task.Analys.analysisImpl;
 
 import ru.neZorinEgor.task.Analys.Analyst;
+import ru.neZorinEgor.task.FileManager.FileManager;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class NumericAnalyst implements Analyst {
+    public NumericAnalyst(boolean option){
+        this.option = option;
+
+    }
+
+    private boolean option;
+
     private double min = 10000000; //поле для перезаписи при сравнение
     private double max = -1000000; //поле для перезаписи при сравнение
     private double summ = 0;
@@ -19,8 +27,6 @@ public class NumericAnalyst implements Analyst {
     public void setSumm(double summ) {
         this.summ = summ;
     }
-
-
 
     public long getLineCount() {
         return count;
@@ -46,15 +52,16 @@ public class NumericAnalyst implements Analyst {
         this.max = max;
     }
 
-    public void doAnalysis(File file, boolean option){
+    public void doAnalysis(File file){
         if (file.exists() || getLineCount() != 0){
             // настройки для корректного присвоения при
             //                         первой итерации и корректного вывода информации в цикле
             //TODO починить счетчик, если изначально поступает пустой файл
-            setSumm(0);
-            setMin(10000);
-            setMax(-10000);
-
+//            if (getLineCount() !=0) {
+//                setSumm(0);
+//                setMin(10000);
+//                setMax(-10000);
+//            }
             Scanner scanner;
             try {
                 scanner = new Scanner(file);
@@ -80,6 +87,9 @@ public class NumericAnalyst implements Analyst {
                 soutNumericResult();
             }
             setLineLength(0);
+            setSumm(0);
+            setMin(10000);
+            setMax(-10000);
         } else {
             System.out.println("File not exist: " + file.getName());
         }

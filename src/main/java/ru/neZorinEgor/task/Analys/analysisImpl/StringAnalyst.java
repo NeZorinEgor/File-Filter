@@ -7,6 +7,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class StringAnalyst implements Analyst {
+    public StringAnalyst(boolean option){
+        this.option = option;
+
+    }
+
+    private boolean option;
+
     private double min; //поле для перезаписи при сравнение
     private double max; //поле для перезаписи при сравнение
     private long lineCount = 0;
@@ -39,13 +46,12 @@ public class StringAnalyst implements Analyst {
         this.max = max;
     }
 
-    public void doAnalysis(File file, boolean option){
+    public void doAnalysis(File file){
 
         if (file.exists()){
             // настройки для корректного присвоения при
             //                         первой итерации и корректного вывода информации в цикле
             //TODO починить счетчик, если изначально поступает пустой файл
-
             setMin(1000000000);
             setMax(0);
             Scanner scanner;
