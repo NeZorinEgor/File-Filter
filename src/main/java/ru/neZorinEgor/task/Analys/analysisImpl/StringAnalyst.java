@@ -88,8 +88,8 @@ public class StringAnalyst implements Analyst {
 
     public void soutNumericResult(){
         System.out.println("\t└─ Additional details:\t");
-        System.out.println("\t\t├─────── Minimum length: " + getMin());
-        System.out.println("\t\t└─────── Maximum length: " + getMax());
+        System.out.println("\t\t├─── Minimum length: " + getMin());
+        System.out.println("\t\t└─── Maximum length: " + getMax());
         System.out.println();
     }
 }

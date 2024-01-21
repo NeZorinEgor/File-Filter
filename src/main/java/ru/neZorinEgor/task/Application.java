@@ -11,14 +11,13 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
-        //TODO OptionsCoordinator  - сущьность, которая
-        // Инициализация объектов
+        //object  argument: Append Line
         FileManager fileManager = new FileManager(false);
+        //object  argument: Full Statistic
         Analyst integerAnalyst = new NumericAnalyst(true);
         Analyst floatAnalyst = new NumericAnalyst(true);
         Analyst stringAnalyst = new StringAnalyst(true);
 
-        // Ввод пути к файлу
         System.out.print("Enter file path: ");
 
         Scanner readFiles = new Scanner(System.in);
@@ -30,15 +29,16 @@ public class Application {
                 while (scanner.hasNextLine()) {
                     fileManager.doFilter(scanner.nextLine());
                 }
-                fileManager.deleteFileIfEmpty();
             } catch (FileNotFoundException e) {
-                System.out.println("Ошибка ввода: " + e.getMessage());
+                System.out.println("Error: File not found: " + e.getMessage());
+                System.out.println("Please make sure you entered the correct file name and try again.");
                 System.exit(130);
             }
         }
-        // Анализ и вывод результатов
-        integerAnalyst.analysisAndPrint(fileManager.getIntegers());
-        floatAnalyst.analysisAndPrint(fileManager.getFloats());
-        stringAnalyst.analysisAndPrint(fileManager.getStrings());
+        fileManager.deleteFileIfEmpty();
+
+        integerAnalyst.analysisAndPrint(fileManager.getIntegersFile());
+        floatAnalyst.analysisAndPrint(fileManager.getFloatsFile());
+        stringAnalyst.analysisAndPrint(fileManager.getStringsFile());
     }
 }

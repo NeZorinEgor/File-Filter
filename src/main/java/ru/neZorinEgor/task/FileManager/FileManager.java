@@ -76,15 +76,15 @@ public class FileManager {
         return floatWriter;
     }
 
-    public File getIntegers() {
+    public File getIntegersFile() {
         return integers;
     }
 
-    public File getStrings() {
+    public File getStringsFile() {
         return strings;
     }
 
-    public File getFloats() {
+    public File getFloatsFile() {
         return floats;
     }
 
@@ -104,25 +104,22 @@ public class FileManager {
         }
     }
 
+    public void checkAndDelete(int counter,
+                               PrintWriter writer,
+                               File file)
+    {
+        if (counter == 0) {
+            writer.close();
+            if (file.exists()) {
+                file.delete();
+            }
+        }
+    }
+
     public void deleteFileIfEmpty() {
-        if (intCount == 0) {
-            getIntWriter().close();
-            if (integers.exists()) {
-                integers.delete();
-            }
-        }
-        if (stringCount == 0) {
-            getStringWriter().close();
-            if (strings.exists()) {
-                strings.delete();
-            }
-        }
-        if (floatCount == 0) {
-            getFloatWriter().close();
-            if (floats.exists()) {
-                floats.delete();
-            }
-        }
+        checkAndDelete(intCount, getIntWriter(), integers);
+        checkAndDelete(stringCount, getStringWriter(), strings);
+        checkAndDelete(floatCount, getFloatWriter(), floats);
     }
 
 }

@@ -87,10 +87,10 @@ public class NumericAnalyst implements Analyst {
 
     public void soutNumericResult(){
         System.out.println("\t└─ Additional details:\t");
-        System.out.println("\t\t├── Minimum: " + getMin());
-        System.out.println("\t\t├── Maximum: " + getMax());
-        System.out.println("\t\t├─── Amount: " + summ);
-        System.out.println("\t\t└── Average: " + summ / getLineCount());
+        System.out.println("\t\t├─── Minimum: " + getMin());
+        System.out.println("\t\t├─── Maximum: " + getMax());
+        System.out.println("\t\t├──── Amount: " + summ);
+        System.out.println("\t\t└─── Average: " + summ / getLineCount());
         System.out.println();
     }
 }

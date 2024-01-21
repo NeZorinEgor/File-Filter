@@ -3,8 +3,8 @@ package ru.neZorinEgor.task.Analys;
 import java.io.File;
 
 /**
- * Аналитик должен уметь анализировать
- *                        файла, который ему дают
+ * Аналитик должен уметь
+ *                 анализировать и знать состояние файла, который ему дают
  */
 public interface Analyst {
     /**
