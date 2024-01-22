@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="TestTaskCFT:jar" />
+      <artifact name="TestTaskCFT:args" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,12 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b667b8de-1dc2-4f22-9882-3b8368f25534" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestTaskCFT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TestTaskCFT_jar/TestTaskCFT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/OptionManager/OptionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/OptionManager/OptionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +50,11 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "20",
     "last.edited.regexp": "",
-    "last_opened_file_path": "D:/java-app/demo",
+    "last_opened_file_path": "D:/java-app/junior/TestTaskCFT/out/artifacts/TestTaskCFT_args/TestTaskCFT.jar",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.22068965",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "File.Encoding"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -76,7 +74,7 @@
       <recent name="ru.neZorinEgor.task.Analysts.analysisImpl" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.TestTaskCFT.jar">
+  <component name="RunManager" selected="JAR Application.args">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.neZorinEgor.task.Application" />
       <module name="TestTaskCFT" />
@@ -90,18 +88,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestTaskCFT.jar (1)" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/TestTaskCFT_args/TestTaskCFT.jar" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestTaskCFT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/TestTaskCFT_jar/TestTaskCFT.jar" />
       <option name="PROGRAM_PARAMETERS" value="-p result_ -o C:/test -f -a t1.txt t2.txt" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
+    <configuration name="args" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/TestTaskCFT_args/TestTaskCFT.jar" />
+      <option name="PROGRAM_PARAMETERS" value="-o C:/test -p result_ -f -a t1.txt t2.txt" />
+      <option name="WORKING_DIRECTORY" value="D:\java-app\junior\TestTaskCFT" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Application" />
+      <item itemvalue="JAR Application.args" />
+      <item itemvalue="JAR Application.TestTaskCFT.jar (1)" />
       <item itemvalue="JAR Application.TestTaskCFT.jar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.TestTaskCFT.jar (1)" />
         <item itemvalue="JAR Application.TestTaskCFT.jar" />
         <item itemvalue="Application.Application" />
       </list>

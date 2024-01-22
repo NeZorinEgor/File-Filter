@@ -34,12 +34,6 @@ public class OptionManager {
         return fullStatistic;
     }
 
-    public void getUserInput(){
-        Scanner scanFiles = new Scanner(System.in);
-        String files = scanFiles.nextLine();
-        String[] options = files.split("\\s+");
-        parseUserInput(options);
-    }
 
     public void parseUserInput(String[] options){
         for (int i = 0; i < options.length; i++){
