@@ -53,7 +53,7 @@ public class OptionManager {
                 fullStatistic = false;
             } else if ("-f".equals(options[i])) {
                 fullStatistic = true;
-            } else if (options[i].matches(".*[.txt]")) {
+            } else if (options[i].matches(".*.txt$")) {
                 files.add(options[i]);
             }
             else if (options[i-1].equals("-p")  || options[i-1].equals("-o")) {

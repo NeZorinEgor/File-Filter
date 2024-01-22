@@ -8,8 +8,6 @@ import ru.neZorinEgor.task.FileManager.FileManager;
 import ru.neZorinEgor.task.OptionManager.OptionManager;
 
 import java.io.*;
-import java.util.Scanner;
-
 public class Application {
     public static void main(String[] args) {
         OptionManager optionManager = new OptionManager();

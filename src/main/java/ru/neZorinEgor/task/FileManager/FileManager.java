@@ -18,10 +18,12 @@ public class FileManager {
         this.prefix = prefix;
         // Инициализация флага
 
+        String separator = String.valueOf(File.separatorChar);
+
         try {
-            String intFileName = path + File.separator + prefix + "integers.txt";
-            String strFileName = path + File.separator + prefix + "strings.txt";
-            String floatFileName = path + File.separator + prefix + "floats.txt";
+            String intFileName = path + separator + prefix + "integers.txt";
+            String strFileName = path + separator + prefix + "strings.txt";
+            String floatFileName = path + separator + prefix + "floats.txt";
 
             // Файлы для каждого типа строки
             integers = new File(intFileName);
@@ -98,7 +100,6 @@ public class FileManager {
                 doFilterLine(scanner.nextLine());
             }
         } catch (FileNotFoundException e) {
-            //отладка сценария
             System.out.println("Error: File not found: " + e.getMessage());
             System.out.println("Please make sure you entered the correct file name and try again.");
             System.exit(130);
