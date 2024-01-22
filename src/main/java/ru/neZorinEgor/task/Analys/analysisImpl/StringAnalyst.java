@@ -7,15 +7,16 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class StringAnalyst implements Analyst {
-    public StringAnalyst(boolean fullStatistic){
+    public StringAnalyst(boolean haveStatistic, boolean fullStatistic){
+        this.haveStatistic = haveStatistic;
         this.fullStatistic = fullStatistic;
-
     }
 
-    private boolean fullStatistic;
+    private final boolean haveStatistic;
+    private final boolean fullStatistic;
 
-    private double min; //поле для перезаписи при сравнение
-    private double max; //поле для перезаписи при сравнение
+    private double minimumLength;
+    private double maximumLength;
     private long lineCount = 0;
 
     public long getCount() {
@@ -30,30 +31,28 @@ public class StringAnalyst implements Analyst {
         this.lineCount = count;
     }
 
-    public double getMin() {
-        return min;
+    public double getMinimumLength() {
+        return minimumLength;
     }
 
-    public double getMax() {
-        return max;
+    public double getMaximumLength() {
+        return maximumLength;
     }
 
-    public void setMin(double min) {
-        this.min = min;
+    public void setMinimumLength(double minimumLength) {
+        this.minimumLength = minimumLength;
     }
 
-    public void setMax(double max) {
-        this.max = max;
+    public void setMaximumLength(double maximumLength) {
+        this.maximumLength = maximumLength;
     }
 
     public void analysisAndPrint(File file){
 
         if (file.exists()){
-            // настройки для корректного присвоения при
-            //                         первой итерации и корректного вывода информации в цикле
-            //TODO починить счетчик, если изначально поступает пустой файл
-            setMin(10000000);
-            setMax(-10000000);
+            // Первоначальные настройки для корректной итерации, что бы было с чем сравнить.
+            setMinimumLength(10000000);
+            setMaximumLength(-10000000);
             Scanner scanner;
 
             try {
@@ -66,19 +65,21 @@ public class StringAnalyst implements Analyst {
                 // подсчет строк
                 setLineLength(getCount() + 1);
                 String lineValue = String.valueOf(scanner.nextLine());
-                if (lineValue.length() > getMax()){
-                    setMax(lineValue.length());
+                if (lineValue.length() > getMaximumLength()){
+                    setMaximumLength(lineValue.length());
                 }
-                if (lineValue.length() < getMin()){
-                    setMin(lineValue.length());
+                if (lineValue.length() < getMinimumLength()){
+                    setMinimumLength(lineValue.length());
                 }
             }
-            System.out.println("Statistics for: " + file.getName());
-            System.out.println("└─ Number of elements: " + getLineCount());
-            if (fullStatistic){
-                soutNumericResult();
+            if(haveStatistic){
+                System.out.println("Statistics for: " + file.getName());
+                System.out.println("└─ Number of elements: " + getLineCount());
+                if (fullStatistic){
+                    printFullStringResult();
+                }
             }
-            //что бы в цикле корректно выводить колличество элементов
+            //что бы в цикле корректно выводить количество элементов
             setLineLength(0);
 
         } else {
@@ -86,10 +87,10 @@ public class StringAnalyst implements Analyst {
         }
     }
 
-    public void soutNumericResult(){
+    public void printFullStringResult(){
         System.out.println("\t└─ Additional details:\t");
-        System.out.println("\t\t├─── Minimum length: " + getMin());
-        System.out.println("\t\t└─── Maximum length: " + getMax());
+        System.out.println("\t\t├─── Minimum length: " + getMinimumLength());
+        System.out.println("\t\t└─── Maximum length: " + getMaximumLength());
         System.out.println();
     }
 }

@@ -20,10 +20,14 @@ public class FileManager {
 
         String separator = String.valueOf(File.separatorChar);
 
+        if (!path.isEmpty()){
+            path += separator;
+        }
+
         try {
-            String intFileName = path + separator + prefix + "integers.txt";
-            String strFileName = path + separator + prefix + "strings.txt";
-            String floatFileName = path + separator + prefix + "floats.txt";
+            String intFileName = path  + prefix + "integers.txt";
+            String strFileName = path  + prefix + "strings.txt";
+            String floatFileName = path + prefix + "floats.txt";
 
             // Файлы для каждого типа строки
             integers = new File(intFileName);
@@ -36,7 +40,7 @@ public class FileManager {
             floatWriter = new PrintWriter(new FileWriter(floats, appendLine));
         } catch (IOException e) {
             // Обработка ошибок при работе с файлами
-            System.out.println(e.getMessage() + "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            System.out.println(e.getMessage() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             throw new RuntimeException(e);
         }
     }
@@ -94,7 +98,8 @@ public class FileManager {
         return floats;
     }
 
-    public void doFilterFile(File file){
+    public void doFilterFile(String fileName){
+        File file = new File(fileName);
         try(Scanner scanner = new Scanner(file)){
             while (scanner.hasNextLine()) {
                 doFilterLine(scanner.nextLine());
