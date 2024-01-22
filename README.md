@@ -33,9 +33,11 @@
 ## Запуск приложения
 
 ### Запуск приложения, собранного Apache Maven
-1. ```cd File-Filter```
+1. `cd File-Filter`
+2. `mvn clean package`
+3. `java -jar target/TestTaskCFT-1.0-SNAPSHOT.jar <набор опций и файлов>`
 
-### Пример запуска утилиты
+### Пример 
 
 ```bash
 java -jar TestTaskCFT.jar -o /home/egor/java/filter/test_output/ -p result_ -a -f t1.txt /home/egor/t2.txt
