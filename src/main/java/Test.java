@@ -10,6 +10,6 @@ public class Test {
             comand[i] = args[i];
         }
 
-        System.out.println(Arrays.toString(comand));
+        System.out.println(Arrays.toString(args));
     }
 }

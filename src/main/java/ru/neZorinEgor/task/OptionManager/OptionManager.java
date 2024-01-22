@@ -41,7 +41,7 @@ public class OptionManager {
         parseUserInput(options);
     }
 
-    private void parseUserInput(String[] options){
+    public void parseUserInput(String[] options){
         for (int i = 0; i < options.length; i++){
             if ("-o".equals(options[i])) {
                 path.append(options[i + 1]);
