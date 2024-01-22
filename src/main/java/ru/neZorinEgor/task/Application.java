@@ -5,36 +5,26 @@ import ru.neZorinEgor.task.Analys.Analyst;
 import ru.neZorinEgor.task.Analys.analysisImpl.NumericAnalyst;
 import ru.neZorinEgor.task.Analys.analysisImpl.StringAnalyst;
 import ru.neZorinEgor.task.FileManager.FileManager;
+import ru.neZorinEgor.task.OptionManager.OptionManager;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
-        //object  argument: Append Line
-        FileManager fileManager = new FileManager(false);
+        OptionManager optionManager = new OptionManager();
+
+        optionManager.getUserInput();
+
+        //object  argument: Append line, path, prefix
+        FileManager fileManager = new FileManager(optionManager.isAppendMode(), optionManager.getPath(), optionManager.getPrefix());
         //object  argument: Full Statistic
-        Analyst integerAnalyst = new NumericAnalyst(true);
-        Analyst floatAnalyst = new NumericAnalyst(true);
-        Analyst stringAnalyst = new StringAnalyst(true);
+        Analyst integerAnalyst = new NumericAnalyst(optionManager.isFullStatistic());
+        Analyst floatAnalyst = new NumericAnalyst(optionManager.isFullStatistic());
+        Analyst stringAnalyst = new StringAnalyst(optionManager.isFullStatistic());
 
-        System.out.print("Enter file path: ");
-
-        Scanner readFiles = new Scanner(System.in);
-        String files = readFiles.nextLine();
-        String[] split = files.split("\\s+");
-        for (String file : split){
-            File fileNameFromScanner = new File(file);
-            try(Scanner scanner = new Scanner(fileNameFromScanner)){
-                while (scanner.hasNextLine()) {
-                    fileManager.doFilter(scanner.nextLine());
-                }
-            } catch (FileNotFoundException e) {
-                //отладка сценария
-                System.out.println("Error: File not found: " + e.getMessage());
-                System.out.println("Please make sure you entered the correct file name and try again.");
-                System.exit(130);
-            }
+        for (String file : optionManager.getFiles()){
+            fileManager.doFilterFile(new File(file));
         }
         fileManager.deleteFileIfEmpty();
 
