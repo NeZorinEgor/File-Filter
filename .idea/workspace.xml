@@ -11,6 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b667b8de-1dc2-4f22-9882-3b8368f25534" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/NumericAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/NumericAnalyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/StringAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Analys/analysisImpl/StringAnalyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/neZorinEgor/task/Application.java" afterDir="false" />
@@ -80,7 +81,7 @@
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.neZorinEgor.task.Application" />
       <module name="TestTaskCFT" />
-      <option name="PROGRAM_PARAMETERS" value="-o C:\test -p result_ -f -a t1.txt t2.txt" />
+      <option name="PROGRAM_PARAMETERS" value="-o C:\test -p result_ -f -a t1.txt D:\minecraft\t2.txt" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ru.neZorinEgor.task.*" />

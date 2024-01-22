@@ -6,6 +6,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Сущность, анализирующая целочисленные и с плавающей точкой файлы.
+ */
 public class NumericAnalyst implements Analyst {
     public NumericAnalyst(boolean haveStatistic, boolean fullStatistic){
         this.haveStatistic = haveStatistic;
@@ -15,8 +18,9 @@ public class NumericAnalyst implements Analyst {
     private final boolean fullStatistic;
     private final boolean haveStatistic;
 
-    private double minimum = 10000000; //поле для перезаписи при сравнении
-    private double maximum = -1000000; //поле для перезаписи при сравнении
+    //Поля для перезаписи при сравнении
+    private double minimum = 10000000;
+    private double maximum = -1000000;
     private double amount = 0;
     private long count = 0;
 
@@ -52,6 +56,10 @@ public class NumericAnalyst implements Analyst {
         this.maximum = maximum;
     }
 
+    /**
+     * Проходка по файлу и вывод статистики
+     * @param file файл для анализа
+     */
     public void analysisAndPrint(File file){
         if (file.exists()){
             Scanner scanner;
@@ -87,6 +95,7 @@ public class NumericAnalyst implements Analyst {
         }
     }
 
+    //Полная статистика.
     public void printFullNumericStatistic(){
         System.out.println("\t└─ Additional details:\t");
         System.out.println("\t\t├─── Minimum: " + getMinimum());

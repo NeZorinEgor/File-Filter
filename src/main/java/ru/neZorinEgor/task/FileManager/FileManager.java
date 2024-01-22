@@ -3,20 +3,26 @@ package ru.neZorinEgor.task.FileManager;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * Сущность, работающая с файлами:
+ *                        создает, фильтрует, удаляет и передает аналитику.
+ */
 public class FileManager {
     //счетчики для проверки файла на пустоту
     int intCount = 0;
     int floatCount = 0;
     int stringCount = 0;
 
-    private String path;
-    private String prefix;
-
-    // Конструктор класса, принимающий флаг для записи / перезаписи
+    /**
+     * Конструктор FileManager.
+     *
+     * @param appendLine флаг для записи / перезаписи файла
+     * @param path       путь к файлам
+     * @param prefix     префикс для файлов
+     */
     public FileManager(boolean appendLine, String path, String prefix) {
-        this.path = path;
-        this.prefix = prefix;
-        // Инициализация флага
+        this.outputPath = path;
+        this.filePrefix = prefix;
 
         String separator = String.valueOf(File.separatorChar);
 
@@ -29,48 +35,51 @@ public class FileManager {
             String strFileName = path  + prefix + "strings.txt";
             String floatFileName = path + prefix + "floats.txt";
 
-            // Файлы для каждого типа строки
-            integers = new File(intFileName);
-            strings = new File(strFileName);
-            floats = new File(floatFileName);
+            // Файлы для каждого типа строки из файла.
+            integersFile = new File(intFileName);
+            stringsFile = new File(strFileName);
+            floatsFile = new File(floatFileName);
 
-            // Инициализация PrintWriter с возможностью перезаписи файлов
-            intWriter = new PrintWriter(new FileWriter(integers, appendLine));
-            stringWriter = new PrintWriter(new FileWriter(strings, appendLine));
-            floatWriter = new PrintWriter(new FileWriter(floats, appendLine));
+            // Инициализация PrintWriter с опцией записи / перезаписи файлов.
+            intWriter = new PrintWriter(new FileWriter(integersFile, appendLine));
+            stringWriter = new PrintWriter(new FileWriter(stringsFile, appendLine));
+            floatWriter = new PrintWriter(new FileWriter(floatsFile, appendLine));
         } catch (IOException e) {
-            // Обработка ошибок при работе с файлами
             System.out.println(e.getMessage() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             throw new RuntimeException(e);
         }
     }
+    private String outputPath;
+    private String filePrefix;
+
     // PrintWriter для каждого типа строки
     private final PrintWriter intWriter;
     private final PrintWriter stringWriter;
     private final PrintWriter floatWriter;
 
-    String intFileName = path + prefix + "integers.txt";
-    String strFileName = path + prefix + "strings.txt";
-    String floatFileName = path + prefix + "floats.txt";
+    String intFileName = outputPath + filePrefix + "integers.txt";
+    String strFileName = outputPath + filePrefix + "strings.txt";
+    String floatFileName = outputPath + filePrefix + "floats.txt";
 
     // Файлы для каждого типа строки
-    private File integers = new File(intFileName);
-    private File strings = new File(strFileName);
-    private File floats = new File(floatFileName);
+    private File integersFile = new File(intFileName);
+    private File stringsFile = new File(strFileName);
+    private File floatsFile = new File(floatFileName);
 
+    // Регулярные выражения для фильтрации
+
+    // целые числа
     public String getIntRegex() {
-        // Регулярные выражения для фильтрации строк
-        // целые числа
         return "^[+-]?\\d+$";
     }
 
+    // строки
     public String getStringRegex() {
-        // строки
         return "^(?![+-]?\\d)(?!\\n)[^\\d ].*$";
     }
 
+    // числа с плавающей точкой
     public String getFloatRegex() {
-        // числа с плавающей точкой
         return "[+-]?\\d+\\.\\d+([eE][+-]?\\d+)?";
     }
 
@@ -87,22 +96,22 @@ public class FileManager {
     }
 
     public File getIntegersFile() {
-        return integers;
+        return integersFile;
     }
 
     public File getStringsFile() {
-        return strings;
+        return stringsFile;
     }
 
     public File getFloatsFile() {
-        return floats;
+        return floatsFile;
     }
 
-    public void doFilterFile(String fileName){
+    public void filterFile(String fileName){
         File file = new File(fileName);
         try(Scanner scanner = new Scanner(file)){
             while (scanner.hasNextLine()) {
-                doFilterLine(scanner.nextLine());
+                filterLine(scanner.nextLine());
             }
         } catch (FileNotFoundException e) {
             System.out.println("Error: File not found: " + e.getMessage());
@@ -112,7 +121,7 @@ public class FileManager {
     }
 
     //запись в файлы и сбор статистика
-    public void doFilterLine(String line){
+    public void filterLine(String line){
         if (line.matches(getIntRegex())) {
             intCount++;
             getIntWriter().append(line).append('\n').flush();
@@ -140,9 +149,9 @@ public class FileManager {
     }
 
     public void deleteFileIfEmpty() {
-        checkAndDelete(intCount, getIntWriter(), integers);
-        checkAndDelete(stringCount, getStringWriter(), strings);
-        checkAndDelete(floatCount, getFloatWriter(), floats);
+        checkAndDelete(intCount, getIntWriter(), integersFile);
+        checkAndDelete(stringCount, getStringWriter(), stringsFile);
+        checkAndDelete(floatCount, getFloatWriter(), floatsFile);
     }
 
 }

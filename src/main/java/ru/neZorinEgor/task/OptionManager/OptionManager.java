@@ -64,9 +64,9 @@ public class OptionManager {
     /**
      * Парсит программные аргументы,
      *                   на основании которых передает флаги аналитику и файловому менеджеру.
-     * @param options - аргументы main(String[] args)
+     * @param options программные аргументы main(String[] args)
      */
-    public void parseUserInput(String[] options){
+    public void parseProgramArguments(String[] options){
         for (int i = 0; i < options.length; i++){
             if ("-o".equals(options[i])) {
                 //TODO проверить на корректность
@@ -89,7 +89,7 @@ public class OptionManager {
                 //checkPrefix(split[i]) || checkPath(split[i])
                 // if (checkPrefix(split[i])){
                 //     continue;
-                //{ else throw new Exeption;
+                //{ else throw new Exception;
                 continue;
             } else {
                 System.out.println("Error!!! Unknown option: " + options[i]);

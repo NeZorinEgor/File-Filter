@@ -4,7 +4,15 @@
 Задача утилиты записать разные типы данных в разные файлы. Целые числа в один
 выходной файл, вещественные в другой, строки в третий. По умолчанию файлы с
 результатами располагаются в текущей папке с именами integers.txt, floats.txt, strings.txt.
-
+## Дополнительные опции
+| Дополнительные опции | Описание                                                        |
+|----------------------|-----------------------------------------------------------------|
+| -o                   | Задать путь к результату                                        |
+| -p                   | Префикс к названию файла                                        |                  
+| -a                   | Добавления в существующие файлы (по умолчанию перезаписываются) |                  
+| -s                   | Краткая статистика                                              |                  
+| -f                   | Полная статистика                                               |  
+Пример: ```-o /some/path -p sample_ -a -f t1.txt t2.txt```
 ## Настройка окружения
 Для настройки окружения следует выполнить следующие шаги:
 
@@ -12,7 +20,9 @@
  Так же установить maven
     ```bash 
     sudo apt install openjdk-17-jdk
-   sudo apt install maven
+    ``` 
+   ```bash 
+    sudo apt install maven
     ```
 2. Копировать репозиторий в пустой каталог.
     ```bash 
@@ -22,20 +32,15 @@
 ## Запуск приложения
 
 ### Запуск приложения, собранного Apache Maven
-```bash
-cd File-Filter
-```
-```bash
-mvn clean package
-```
-```bash
-mvn exec:java -Dexec.mainClass="ru.neZorinEgor.task.Application"
-```
+//TODO
 
 ### Пример запуска утилиты
 
+```bash
+java -jar TestTaskCFT.jar -o /home/egor/java/filter/test_output/ -p result_ -a -f t1.txt /home/egor/t2.txt
 ```
--o /home/egor/java/filter/test_output/ -p result_ -a -f t1.txt t2.txt
+
+```
 Statistics for: result_integers.txt
 └─ Number of elements: 3
         └─ Additional details:

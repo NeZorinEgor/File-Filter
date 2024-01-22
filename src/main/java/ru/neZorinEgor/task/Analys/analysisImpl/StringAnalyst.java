@@ -6,6 +6,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Сущность, анализирующая строковые файлы.
+ */
 public class StringAnalyst implements Analyst {
     public StringAnalyst(boolean haveStatistic, boolean fullStatistic){
         this.haveStatistic = haveStatistic;
@@ -47,8 +50,11 @@ public class StringAnalyst implements Analyst {
         this.maximumLength = maximumLength;
     }
 
+    /**
+     * Проходка по файлу и вывод статистики
+     * @param file файл для анализа
+     */
     public void analysisAndPrint(File file){
-
         if (file.exists()){
             // Первоначальные настройки для корректной итерации, что бы было с чем сравнить.
             setMinimumLength(10000000);
