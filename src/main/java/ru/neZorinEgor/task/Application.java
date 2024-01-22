@@ -30,6 +30,7 @@ public class Application {
                     fileManager.doFilter(scanner.nextLine());
                 }
             } catch (FileNotFoundException e) {
+                //отладка сценария
                 System.out.println("Error: File not found: " + e.getMessage());
                 System.out.println("Please make sure you entered the correct file name and try again.");
                 System.exit(130);
