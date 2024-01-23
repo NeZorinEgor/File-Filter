@@ -69,15 +69,12 @@ public class OptionManager {
     public void parseProgramArguments(String[] options){
         for (int i = 0; i < options.length; i++){
             if ("-o".equals(options[i])) {
-                //TODO проверить на корректность
                 outputPath.append(options[i + 1]);
             } else if ("-p".equals(options[i])) {
-                //TODO проверить на корректность
                 filePrefix.append(options[i + 1]);
             } else if ("-a".equals(options[i])) {
                 appendMode = true;
             } else if ("-s".equals(options[i])) {
-                //TODO сделать так, что бы выводилась статистика только если просят
                 haveStatistic = true;
                 fullStatistic = false;
             } else if ("-f".equals(options[i])) {
@@ -86,13 +83,14 @@ public class OptionManager {
             } else if (options[i].endsWith(".txt")) {
                 files.add(options[i]);
             } else if (options[i-1].equals("-p")  || options[i-1].equals("-o")) {
-                //checkPrefix(split[i]) || checkPath(split[i])
-                // if (checkPrefix(split[i])){
-                //     continue;
-                //{ else throw new Exception;
                 continue;
             } else {
-                System.out.println("Error!!! Unknown option: " + options[i]);
+                System.out.println();
+                System.out.println(" >>> Error!!! Unknown option: " + options[i]);
+                System.out.println("┌────────────────────────────   Message:   ───────────────────────────┐");
+                System.out.println("| Please make sure you have entered the correct options and try again |");
+                System.out.println("└─────────────────────────────────────────────────────────────────────┘");
+
                 System.exit(1);
             }
         }

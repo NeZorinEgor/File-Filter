@@ -14,6 +14,19 @@
 | -f                   | Полная статистика                                               |  
 
 Пример: ```-o /some/path -p sample_ -a -f t1.txt t2.txt```
+
+## Описание классов
+Все классы находятся в пакете **ru.neZorinEgor.task**.
+
+| Наименование класса/интерфейса | Описание                                                                                                                 |
+|--------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| OptionManager                  | Сущность, которая обрабатывает программные аргументы и передает информацию для поведения Аналитику и Файловому менеджеру |
+| FileManager                    | Сущность, работающая с файлами: создает, фильтрует, удаляет и передает аналитику                                         |
+| Analyst                        | Интерфейс, описывающий, что должен делать аналитик                                                                       |
+| NumericAnalyst                 | Реализация интерфейса Analyst. Корректно анализирует числовые и с плавабщей точкой файлы                                 |
+| StringAnalyst                  | Реализация интерфейса Analyst. Корректно анализирует строковые файлы                                                     |
+| Application                    | Основной класс приложения с методом main(String[] args)                                                                  |
+
 ## Настройка окружения
 Для настройки окружения следует выполнить следующие шаги:
 
@@ -32,6 +45,17 @@
 
 ## Запуск приложения
 
+### Запуск приложения через InteleJ Idea
+В склонированом проекте в настройки конфигурации запуска
+![](img/step1.png)
+В нем создайте конфигурацию Application 
+В конфигурации задайте:
+1. Имя
+2. Версию JDK 
+3. Main class - ru.neZorinEgor.task.Application
+4. Program argument (например -a -f -s -o <path> -p <prefix> <file.txt> и тп...)
+![](img/step2.png)
+
 ### Запуск приложения, собранного Apache Maven
 1. `cd File-Filter`
 2. `mvn clean package`
@@ -40,25 +64,25 @@
 ### Пример 
 
 ```bash
-java -jar TestTaskCFT.jar -o /home/egor/java/filter/test_output/ -p result_ -a -f t1.txt /home/egor/t2.txt
+java -jar target/TestTaskCFT-1.0-SNAPSHOT.jar -o C:\test -p result_ -f -a t1.txt D:\minecraft\t2.txt
 ```
-
+### Результат выполнения
 ```
 Statistics for: result_integers.txt
 └─ Number of elements: 3
         └─ Additional details:
-                ├─── Minimum: 45.0
-                ├─── Maximum: 1.23456793955060941E18
-                ├──── Amount: 1.23456793955071002E18
-                └─── Average: 4.1152264651690336E17
+                ├─── Minimum: 45
+                ├─── Maximum: 1234567939550609410
+                ├──── Amount: 1234567939550710020
+                └─── Average: 411522646516903360
 
 Statistics for: result_floats.txt
 └─ Number of elements: 3
         └─ Additional details:
-                ├─── Minimum: -9.999999747378752E-6
-                ├─── Maximum: 3.1414999961853027
-                ├──── Amount: 3.1414899961855554
-                └─── Average: 1.0471633320618519
+                ├─── Minimum: -0,0000099999997474
+                ├─── Maximum: 3,1414999961853027
+                ├──── Amount: 3,1414899961855554
+                └─── Average: 1,0471633320618519
 
 Statistics for: result_strings.txt
 └─ Number of elements: 6
@@ -66,7 +90,7 @@ Statistics for: result_strings.txt
                 ├─── Minimum length: 4.0
                 └─── Maximum length: 42.0
 ```
-### Результат выполнения
+
 ```bash
 ~/java/filter/test_output$ ls
 result_floats.txt  result_integers.txt  result_strings.txt
@@ -90,4 +114,34 @@ consectetur adipiscing
 тестовое задание
 Нормальная форма числа с плавающей запятой
 Long
+```
+
+### Обработка ошибок
+Ввод несуществующей опции:
+```
+PS D:\java-app\junior\TestTaskCFT> java -jar target/TestTaskCFT-1.0-SNAPSHOT.jar -o C:\test -p result_ -f?  t1.txt t2.txt
+
+>>> Error!!! Unknown option: -f?
+┌────────────────────────────   Message:   ───────────────────────────┐
+| Please make sure you have entered the correct options and try again |
+└─────────────────────────────────────────────────────────────────────┘
+```
+Ввод несущего входного файла:
+```
+PS D:\java-app\junior\TestTaskCFT> java -jar target/TestTaskCFT-1.0-SNAPSHOT.jar -o C:\test -p result_ -f  ast1.txt t2.txt
+
+>>> Error!!! File not found: ast1.txt (Не удается найти указанный файл)
+┌────────────────────────────   Message:   ───────────────────────────┐
+| Please make sure you entered the correct file name and try again    |
+└─────────────────────────────────────────────────────────────────────┘
+```
+Ввод несущего выходного пути:
+```
+PS D:\java-app\junior\TestTaskCFT> java -jar target/TestTaskCFT-1.0-SNAPSHOT.jar -o C:\teest -p result_ -f  t1.txt t2.txt
+
+>>> Error!!! Cannot find the specified path: C:\teest\result_integers.txt (Системе не удается найти указанный путь)
+┌────────────────────────────   Message:   ────────────────────────┐
+| Please make sure you have entered the correct path and try again |
+└──────────────────────────────────────────────────────────────────┘
+PS D:\java-app\junior\TestTaskCFT> 
 ```

@@ -4,6 +4,7 @@ import ru.neZorinEgor.task.Analys.Analyst;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
@@ -96,12 +97,14 @@ public class NumericAnalyst implements Analyst {
     }
 
     //Полная статистика.
-    public void printFullNumericStatistic(){
+    public void printFullNumericStatistic() {
+        DecimalFormat decimalFormat = new DecimalFormat("#.################"); // Задайте нужный формат для float числа
+
         System.out.println("\t└─ Additional details:\t");
-        System.out.println("\t\t├─── Minimum: " + getMinimum());
-        System.out.println("\t\t├─── Maximum: " + getMaximum());
-        System.out.println("\t\t├──── Amount: " + amount);
-        System.out.println("\t\t└─── Average: " + amount / getLineCount());
+        System.out.println("\t\t├─── Minimum: " + decimalFormat.format(getMinimum()));
+        System.out.println("\t\t├─── Maximum: " + decimalFormat.format(getMaximum()));
+        System.out.println("\t\t├──── Amount: " + decimalFormat.format(amount));
+        System.out.println("\t\t└─── Average: " + decimalFormat.format(amount / getLineCount()));
         System.out.println();
     }
 }

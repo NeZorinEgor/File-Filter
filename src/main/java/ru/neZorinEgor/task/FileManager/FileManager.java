@@ -45,17 +45,21 @@ public class FileManager {
             stringWriter = new PrintWriter(new FileWriter(stringsFile, appendLine));
             floatWriter = new PrintWriter(new FileWriter(floatsFile, appendLine));
         } catch (IOException e) {
-            System.out.println(e.getMessage() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            throw new RuntimeException(e);
+            System.out.println();
+            System.out.println(" >>> Error!!! Cannot find the specified path: " + e.getMessage());
+            System.out.println("┌────────────────────────────   Message:   ────────────────────────┐");
+            System.out.println("| Please make sure you have entered the correct path and try again |");
+            System.out.println("└──────────────────────────────────────────────────────────────────┘");
+            System.exit(1);
         }
     }
     private String outputPath;
     private String filePrefix;
 
     // PrintWriter для каждого типа строки
-    private final PrintWriter intWriter;
-    private final PrintWriter stringWriter;
-    private final PrintWriter floatWriter;
+    private PrintWriter intWriter;
+    private PrintWriter stringWriter;
+    private PrintWriter floatWriter;
 
     String intFileName = outputPath + filePrefix + "integers.txt";
     String strFileName = outputPath + filePrefix + "strings.txt";
@@ -114,9 +118,12 @@ public class FileManager {
                 filterLine(scanner.nextLine());
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Error: File not found: " + e.getMessage());
-            System.out.println("Please make sure you entered the correct file name and try again.");
-            System.exit(130);
+            System.out.println();
+            System.out.println(" >>> Error!!! File not found: " + e.getMessage());
+            System.out.println("┌────────────────────────────   Message:   ───────────────────────────┐");
+            System.out.println("| Please make sure you entered the correct file name and try again    |");
+            System.out.println("└─────────────────────────────────────────────────────────────────────┘");
+            System.exit(1);
         }
     }
 
