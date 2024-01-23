@@ -67,7 +67,7 @@ public class NumericAnalyst implements Analyst {
             try {
                 scanner = new Scanner(file);
             } catch (FileNotFoundException e) {
-                //ошибка не выкинется, она обработается в точке входа приложения
+                //ошибка не выкинется, она обработается выше
                 throw new RuntimeException(e);
             }
 
@@ -98,7 +98,8 @@ public class NumericAnalyst implements Analyst {
 
     //Полная статистика.
     public void printFullNumericStatistic() {
-        DecimalFormat decimalFormat = new DecimalFormat("#.################"); // Задайте нужный формат для float числа
+        // Если считайте нужный, задайте формат для float числа, все равно идеально его не вывести
+        DecimalFormat decimalFormat = new DecimalFormat("#.################");
 
         System.out.println("\t└─ Additional details:\t");
         System.out.println("\t\t├─── Minimum: " + decimalFormat.format(getMinimum()));
