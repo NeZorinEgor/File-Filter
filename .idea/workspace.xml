@@ -9,12 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b667b8de-1dc2-4f22-9882-3b8368f25534" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result_floats.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result_integers.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result_strings.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="b667b8de-1dc2-4f22-9882-3b8368f25534" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
